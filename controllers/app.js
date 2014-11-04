@@ -1,8 +1,15 @@
 //Initial declaration of our app. angularjs.org for more details.
-var asigApp = angular.module('asigApp', ['ngAnimate', 'ui.router']);
+var asigApp = angular.module('asigApp', ['ngAnimate', 'ui.router', 'google-maps'.ns()]);
 
 
 
+    asigApp.config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
+        GoogleMapApi.configure({
+            key: 'AIzaSyCl_7Y7qoaHFuySSIwxl6yMm0ZbwPCzlxU',
+            v: '3.17',
+            libraries: 'weather,geometry,visualization'
+        });
+    }])
 
 //This is our state manager. https://github.com/angular-ui/ui-router for more info.
 // Basically, add state with 'ui-sref', the url(that will be displayed at top), and the templateUrl (The actual file to be injected)
@@ -104,7 +111,34 @@ asigApp.controller('officerController', function($scope){
 
 });
 
+asigApp.controller('mapCntrl', ['$scope', 'GoogleMapApi'.ns(), function($scope, GoogleMapApi){
 
+//42.719619, -73.668824
+    GoogleMapApi.then(function(maps) {
+    	$scope.map = {
+    		center:{
+    			latitude: 42.719619,
+    			longitude: -73.668824
+    		},
+    		zoom: 15,
+    		zoomControl: false
+    	};
+    	$scope.options = {
+    		scrollwheel: false,
+    		disableDefaultUI: true
+
+    	};
+
+    	$scope.marker = {
+    		id: 0,
+    		coords: {
+    			latitude: 42.719619,
+    			longitude: -73.668824    			
+    		}
+    	};
+    });
+
+}]);
 
 
 asigApp.controller('navbarCntrl', ['$scope', function($scope){

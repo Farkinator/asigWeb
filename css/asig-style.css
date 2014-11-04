@@ -102,6 +102,11 @@ html {
     text-align: center;
 }
 
+.angular-google-map-container{
+    height: 400px;
+}
+
+
 /* basic styling for entering and leaving */
 /* left and right added to ensure full width */
 #bigolpage.ng-enter,
