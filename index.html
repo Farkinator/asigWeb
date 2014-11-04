@@ -12,17 +12,10 @@
     <title>ΑΣΦ FRATERNITY - BΨ CHAPTER</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Animate.css -->
     <link href="css/animate.css" rel = "stylesheet">
-    <!-- AngularJS -->
-    <script src="js/angular.min.js"></script>
-    <!-- AngularUI Router -->
-    <script src = "js/angular-ui-router.min.js"></script>
-    <!-- ngAnimate -->
-    <script src = "js/angular-animate.min.js"></script>
-    <!-- THIS IS THE PART YOU WANT TO EDIT EVERY SEMESTER. GO TO THIS LOCATION BIBLETHUMP -->
-    <script src="controllers/app.js"></script>
+
 
 
 
@@ -40,11 +33,11 @@
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" >
     <div id="hidden"></div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller = "navbarCntrl">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -53,21 +46,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#">ΑΣΦ - BΨ</a>
+                <a class="navbar-brand" ui-sref="home" ng-click="active = home">ΑΣΦ - BΨ</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <div class="collapse navbar-collapse navbar-ex1-collapse" >
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a ></a>
                     </li>
                     <li>
-                        <a ui-sref="about" ui-sref-active="active">About</a>
+                        <a ui-sref="about" ui-sref-active="active" ng-click="active = about">About</a>
                     </li>
                     <li>
-                        <a  ui-sref="brothers" ui-sref-active="active">Brotherhood</a>
+                        <a  ui-sref="brothers" ui-sref-active="active" ng-click="active = brothers">Brotherhood</a>
+                    </li>
+                    <li>
+                        <a ui-sref="events" ui-sref-active="active" ng-click="active = events">Events</a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav pull-right">
+                    <li ng-repeat="element in active">
+                        <a>{{element}}</a>
                     </li>
                 </ul>
             </div>
@@ -75,9 +78,8 @@
         </div>
         <!-- /.container -->
     </nav>
-    
-    
-    <div id="bigolpage"  ui-view></div>
+    <!-- Wondering what's going on here? Check out controllers/app.js for more info. -->
+    <div id="bigolpage" data-spy="scroll" data-target=".navbar-fixed-top" ui-view></div>
 
 
     
@@ -85,16 +87,25 @@
 
 
 
-
+    <!-- BOWER COMPONENTS. -->
     <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
-
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AngularJS -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <!-- AngularUI Router -->
+    <script src = "bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- ngAnimate -->
+    <script src = "bower_components/angular-animate/angular-animate.min.js"></script>
 
+
+    <!-- CUSTOM SHIT -->
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
+    <!-- THIS IS THE PART YOU WANT TO EDIT EVERY SEMESTER. GO TO THIS LOCATION BIBLETHUMP -->
+    <script src="controllers/app.js"></script>
 
 </body>
 

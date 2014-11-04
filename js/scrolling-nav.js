@@ -9,7 +9,7 @@ $(window).scroll(function() {
     // $('section').each(function(){
     //     if(pos.top >= $(this).offset().top-50 && pos.top <= $(this).next().offset().top)
     //     {
-    //         $('.navbar').css('border-color', $(this).css('background-color')); //or any other way you want to get the date
+    //         $('.navbar').css('border-color', $(this).css('background-color')); //crenellations :D
     //         return; //break the loop
     //     }
     // });
@@ -20,7 +20,7 @@ $(function() {
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('ui-sref')).offset().top
+            scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });

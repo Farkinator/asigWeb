@@ -30,9 +30,9 @@ html {
 
 .navbar{
     background-color: #570000;
-    border-color: transparent;
-   /*line-height: 1.3em;
-   border-bottom: 5px dashed    ;*/
+    border-bottom-color: black;
+   
+   border-bottom-style: 5px solid;
 
 }
 
@@ -57,6 +57,7 @@ html {
 }
 
 #bigolpage{
+    padding-top: 150px;
     height: 900px;
 }
 

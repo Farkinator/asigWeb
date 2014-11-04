@@ -5,6 +5,7 @@ var asigApp = angular.module('asigApp', ['ngAnimate', 'ui.router']);
 
 
 //This is our state manager. https://github.com/angular-ui/ui-router for more info.
+// Basically, add state with 'ui-sref', the url(that will be displayed at top), and the templateUrl (The actual file to be injected)
 asigApp.config(function($stateProvider, $urlRouterProvider) {
 	//If it's not a state, we're home :)
 	$urlRouterProvider.otherwise("/home");
@@ -14,7 +15,7 @@ asigApp.config(function($stateProvider, $urlRouterProvider) {
 		.state('home', {
 			url: '/home',
 			templateUrl: 'home-part.html'
-
+			
 		})
 
 		.state('about', {
@@ -25,7 +26,12 @@ asigApp.config(function($stateProvider, $urlRouterProvider) {
 		.state('brothers', {
 			url: '/brothers',
 			templateUrl: 'brother-part.html'
-		});
+		})
+
+		.state('events', {
+			url: '/events',
+			templateUrl: 'events-part.html'
+		})
 
 
 
@@ -97,3 +103,21 @@ asigApp.controller('officerController', function($scope){
 	//Phew that was obnoxious. Oh well, hope y'all can keep this up to date when I'm being lazy.
 
 });
+
+
+
+
+asigApp.controller('navbarCntrl', ['$scope', function($scope){
+	$scope.about = ["Local", "National"];
+	$scope.home = ["Home", "Map", "Join"];
+	$scope.events = ["Rush"];
+	$scope.active = $scope.home;
+
+	$scope.activate = function(name){
+		if(name == "about"){
+			$scope.active = $scope.about;
+			alert("haha");
+		}
+	}
+
+}]);
