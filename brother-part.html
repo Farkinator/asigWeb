@@ -1,0 +1,22 @@
+<!-- Officers Section -->
+<section id="officers" class="officers-section cointainer" ng-controller="officerController">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Our Officers</h1>
+
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col-lg-3 officer-cell" ng-repeat="officer in officers">
+                <img class="officer-pic" ng-src="content/{{officer.name}}.jpg"/>
+                <h3>{{officer.name}}</h3>
+                <p ng-repeat="position in officer.positions">{{position}}</p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
